@@ -1,16 +1,21 @@
 {
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "format": "prettier --write .",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-packagejson": "^2.5.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "vite": "^5.2.11",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
   "packageManager": "pnpm@9.1.0-0+sha256.c557b24d2298d9b5e3be7086ebf55a28253b008324d545f72645a6de89844102",
   "volta": {
     "node": "22.1.0"
-  },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "type": "module",
-  "devDependencies": {
-    "vite": "^5.2.11",
-    "vite-tsconfig-paths": "^4.3.2"
   }
 }
