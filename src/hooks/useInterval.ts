@@ -6,7 +6,7 @@ export const useInterval = (callback: () => void, interval = 25) => {
   const worker = useRef<InstanceType<typeof MetronomeWorker> | null>(null);
 
   useEffect(() => {
-    worker.current = new MetronomeWorker();
+    worker.current ||= new MetronomeWorker();
 
     const onMessage = (e: MessageEvent<unknown>) => {
       if (e.data === "tick") {
@@ -15,8 +15,7 @@ export const useInterval = (callback: () => void, interval = 25) => {
     };
 
     worker.current.addEventListener("message", onMessage);
-
-    return () => worker.current?.terminate();
+    return () => worker.current?.removeEventListener("message", onMessage);
   }, [callback]);
 
   const postMessage = (payload: WorkerPayload) => {
